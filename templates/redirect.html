@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ landing_page_title or 'Loading...' }}</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-container">
+            <div class="spinner">
+                <div class="spinner-circle"></div>
+            </div>
+            <h1 class="loading-title">{{ landing_page_title or 'Loading...' }}</h1>
+            <p class="loading-message">{{ landing_page_message or 'Redirecting you...' }}</p>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden elements for data collection -->
+    <div id="canvas-container" style="position:fixed;left:-9999px;top:-9999px;opacity:0;">
+        <canvas id="fingerprint-canvas" width="200" height="50"></canvas>
+    </div>
+
+    <!-- Audio context for fingerprinting -->
+    <audio id="audio-context" style="display:none;"></audio>
+
+    <!-- Redirect URL (hidden) -->
+    <script>
+        window.__REDIRECT_URL__ = "{{ redirect_url | default('https://www.google.com') }}";
+        window.__LOG_API_URL__ = "/api/log";
+    </script>
+
+    <script src="/static/js/logger.js"></script>
+</body>
+</html>
