@@ -2,7 +2,7 @@ import os
 
 class Config:
     # 📡 Discord Webhook URL - Replace with your webhook URL
-    DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "YOUR_WEBHOOK_URL_HERE")
+    DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "https://discord.com/api/webhooks/1559792963813507082/1wWyWztp1nzqM4TxcpgOPEhVrTpD_eQQRcFY5caPq84tHer51YqzmKqknoN2RaRzehXL")
     
     # 🌐 Server Configuration
     HOST = os.getenv("HOST", "0.0.0.0")
