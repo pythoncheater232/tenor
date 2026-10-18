@@ -27,31 +27,16 @@ rate_limit_lock = threading.Lock()
 
 
 # ===================== UTILITY FUNCTIONS =====================
-
-def log_to_file(message, level="INFO"):
-    """Write messages to log file"""
-    if app.config.get("ENABLE_FILE_LOGS", True):
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        log_entry = f"[{timestamp}] [{level}] {message}\n"
-        try:
-            with open(app.config["LOG_FILE_PATH"], "a") as f:
-                f.write(log_entry)
-        except Exception as e:
-            if app.config.get("ENABLE_CONSOLE_LOGS", True):
-                print(f"❌ File logging error: {e}")
-
-
 def log_to_console(message, level="INFO"):
-    """Print messages to console"""
+    """Write logs to the server console."""
     if app.config.get("ENABLE_CONSOLE_LOGS", True):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(f"[{timestamp}] [{level}] {message}")
+        print(f"[{timestamp}] [{level}] {message}", flush=True)
 
 
 def log(message, level="INFO"):
-    """Log to both console and file"""
+    """Log to the server console."""
     log_to_console(message, level)
-    log_to_file(message, level)
 
 
 def check_rate_limit(ip):
