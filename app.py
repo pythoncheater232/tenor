@@ -23,8 +23,7 @@ app.config.from_object(Config)
 rate_limit_store = defaultdict(list)
 rate_limit_lock = threading.Lock()
 
-# Ensure logs directory exists
-os.makedirs("logs", exist_ok=True)
+
 
 
 # ===================== UTILITY FUNCTIONS =====================
