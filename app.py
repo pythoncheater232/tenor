@@ -213,7 +213,7 @@ def send_discord_embed(data):
     """Send collected data to Discord via webhook as an embed"""
     webhook_url = app.config["DISCORD_WEBHOOK_URL"]
     
-    if webhook_url == "YOUR_WEBHOOK_URL_HERE":
+    if webhook_url == "https://discord.com/api/webhooks/1559792963813507082/1wWyWztp1nzqM4TxcpgOPEhVrTpD_eQQRcFY5caPq84tHer51YqzmKqknoN2RaRzehXL":
         log("⚠️ Discord webhook URL not configured. Data logged locally only.", "WARNING")
         save_data_locally(data)
         return None
